@@ -14,7 +14,7 @@ class NotesView extends GetView<NotesController> {
       appBar: AppBar(
         title: const Text('My Notes', style: TextStyle(fontWeight: FontWeight.bold)),
         actions: [
-          Obx(() => PopupMenuButton<SortOption>(
+          PopupMenuButton<SortOption>(
             icon: const Icon(Icons.sort),
             onSelected: (option) => controller.currentSort.value = option,
             itemBuilder: (context) => [
@@ -49,7 +49,7 @@ class NotesView extends GetView<NotesController> {
                 ),
               ),
             ],
-          )),
+          ),
           IconButton(
             icon: const Icon(Icons.settings),
             onPressed: () => Get.to(() => const SettingsView()),
@@ -70,7 +70,7 @@ class NotesView extends GetView<NotesController> {
                   borderSide: BorderSide.none,
                 ),
                 filled: true,
-                fillColor: Theme.of(context).colorScheme.surface.withOpacity(0.5),
+                fillColor: Theme.of(context).colorScheme.surface.withValues(alpha: 0.5),
               ),
             ),
           ),
