@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'init.dart';
 import 'services/theme_service.dart';
 import 'core/theme/app_theme.dart';
+import 'core/bindings/root_binding.dart';
+import 'modules/home/views/home_view.dart';
 
 void main() async {
   // Ensure Flutter binding is initialized
@@ -25,26 +27,12 @@ class NotesApp extends StatelessWidget {
     return Obx(() => GetMaterialApp(
       title: 'Flutter Notes',
       debugShowCheckedModeBanner: false,
+      initialBinding: RootBinding(),
       theme: AppTheme.getTheme(themeService.currentPalette.value, isDark: false),
       darkTheme: AppTheme.getTheme(themeService.currentPalette.value, isDark: true),
       themeMode: themeService.themeMode, // Controlled by ThemeService
-      home: const InitialScreen(),
+      home: const HomeView(),
     ));
   }
-}
 
-class InitialScreen extends StatelessWidget {
-  const InitialScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Notes App'),
-      ),
-      body: const Center(
-        child: Text('Step 3 Complete: main.dart Setup'),
-      ),
-    );
-  }
 }
