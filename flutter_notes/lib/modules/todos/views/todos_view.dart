@@ -63,7 +63,7 @@ class TodosView extends GetView<TodosController> {
                   ),
                 ),
                 trailing: IconButton(
-                  icon: const Icon(Icons.delete_outline, color: Colors.transparent),
+                  icon: const Icon(Icons.delete_outline),
                   color: Colors.red,
                   onPressed: () => controller.deleteTodo(todo.id),
                 ),
