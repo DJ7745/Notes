@@ -31,7 +31,7 @@ class AppTheme {
         foregroundColor: semantic.textPrimary,
         elevation: 0,
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: semantic.surface,
         elevation: 2,
         shadowColor: CommonPalette.black12,
