@@ -14,11 +14,11 @@ class AppTheme {
       colorScheme: ColorScheme(
         brightness: isDark ? Brightness.dark : Brightness.light,
         primary: semantic.primary,
-        onPrimary: Colors.white,
+        onPrimary: CommonPalette.white,
         secondary: semantic.primary,
-        onSecondary: Colors.white,
-        error: Colors.redAccent,
-        onError: Colors.white,
+        onSecondary: CommonPalette.white,
+        error: CommonPalette.error,
+        onError: CommonPalette.onError,
         surface: semantic.surface,
         onSurface: semantic.textPrimary,
       ),
@@ -34,7 +34,7 @@ class AppTheme {
       cardTheme: CardTheme(
         color: semantic.surface,
         elevation: 2,
-        shadowColor: Colors.black12,
+        shadowColor: CommonPalette.black12,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
     );

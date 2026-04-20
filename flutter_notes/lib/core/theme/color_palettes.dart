@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 
+class CommonPalette {
+  static const Color white = Color(0xFFFFFFFF);
+  static const Color error = Color(0xFFEF4444);
+  static const Color onError = Color(0xFFFFFFFF);
+  static const Color black12 = Color(0x1F000000);
+}
+
 class SemanticColors {
   final Color primary;
   final Color background;
