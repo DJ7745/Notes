@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'init.dart';
 import 'services/theme_service.dart';
+import 'core/theme/app_theme.dart';
 
 void main() async {
   // Ensure Flutter binding is initialized
@@ -18,20 +19,17 @@ class NotesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Apply theme from ThemeService (Theme implementation will be expanded in Step 8)
-    // final themeService = Get.find<ThemeService>();
+    // Apply theme from ThemeService
+    final themeService = Get.find<ThemeService>();
 
-    return GetMaterialApp(
+    return Obx(() => GetMaterialApp(
       title: 'Flutter Notes',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
-      ),
-      darkTheme: ThemeData.dark(useMaterial3: true),
-      themeMode: ThemeMode.system, // To be controlled by ThemeService later
+      theme: AppTheme.getTheme(themeService.currentPalette.value, isDark: false),
+      darkTheme: AppTheme.getTheme(themeService.currentPalette.value, isDark: true),
+      themeMode: themeService.themeMode, // Controlled by ThemeService
       home: const InitialScreen(),
-    );
+    ));
   }
 }
 
